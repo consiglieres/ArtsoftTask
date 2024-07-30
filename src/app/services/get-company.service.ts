@@ -5,6 +5,7 @@ import { ICompany } from '../interfaces/company.interface';
 
 @Injectable()
 export class GetCompanyService {
+
   constructor(private _httpClient: HttpClient){};
 
   public getCompany(): Observable<ICompany[]>{

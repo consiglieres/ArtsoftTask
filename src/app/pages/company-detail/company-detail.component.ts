@@ -9,16 +9,16 @@ import { ICompany } from '../../interfaces/company.interface';
   styleUrl: './company-detail.component.css'
 })
 export class CompanyDetailComponent implements OnInit{
-  
-  protected object?: object
+  protected object?: ICompany;
 
   constructor(private activatedRoute: ActivatedRoute, private getCompanyService: GetCompanyService){}
 
   ngOnInit(): void {
-    let company: ICompany[]
-    this.getCompanyService.getCompany().subscribe(value => company = value)
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.object = company[params['id'] - 1]
-    });
+    this.getCompanyService.getCompany().subscribe(value => {
+      this.activatedRoute.params.subscribe((params: Params) => {
+        this.object = value[params['id'] - 1]
+        console.log(this.object)
+      });
+    })
   }
-} 
+}
