@@ -1,0 +1,52 @@
+.block{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 1rem;
+  border: 1px solid black;
+  color: black;
+
+  .block_information {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    border: 3px solid black;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0rem;
+    
+    .logo{
+      display: flex;
+      max-width: 25%;
+      align-self: center;
+      align-items: center;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .text{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-left: 20px;
+      
+      .item {
+        margin: 2px 0px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .company-item {
+      flex-direction: column;
+  }
+  .logo {
+      max-width: 100%;
+  }
+  .info {
+      flex-direction: column;
+  }
+}

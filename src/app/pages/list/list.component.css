@@ -1,0 +1,12 @@
+.main_content {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-left: 25vw;
+  margin-right: 25vw;
+
+  .filter_sort {
+    display: flex;
+    flex-direction: column;
+  }
+}

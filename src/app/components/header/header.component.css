@@ -1,0 +1,26 @@
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px 00px;
+
+  .background_item {
+    background-color: bisque;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 0px 30px 0px 30px;
+    text-align: center;
+  }
+
+  .list, .details, .map {
+    font-style: inherit;
+    font-size: 28px;
+    text-decoration: none;
+    margin: 0px 30px 0px 30px;
+    color: black;
+  }
+
+  .list:active, .details:active, .map:active {
+    color: rgb(167, 33, 33);
+  }
+}

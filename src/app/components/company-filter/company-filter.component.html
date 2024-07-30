@@ -1,0 +1,20 @@
+<section class="filters">
+  <input type="text" placeholder="Company name" class="company_name">
+  <h1>Company type:</h1>
+  @if(company$ | async; as companys){
+    
+  <select name="" id="type_company">
+    <option value="">Choose type of company</option>
+    @for(company of companys; track company.id){
+        <option value="">{{company.type}}</option>
+    }
+  </select>
+  <h1>Company industry:</h1>
+  <select name="" id="industry_company">
+    <option value="">Choose industry of company</option>
+    @for(company of companys; track company.id){
+        <option value="">{{company.industry}}</option>
+    }
+  </select>
+  }
+</section>
