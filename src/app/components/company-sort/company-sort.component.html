@@ -1,16 +1,13 @@
 <section class="sort">
-  <select id="" >
-    <option value="">
+  <select id="sort-select" [(ngModel)]="sortParametrs" (change)="onChange()">
+    <option value="business_name">
       Company name
     </option>
-    <option value="">
+    <option value="type">
       Company type
     </option>
-    <option value="">
+    <option value="industry">
       Company industry
     </option>
   </select>
-  <button (click)="onClick()" class="on_click">
-    Применить
-  </button>
 </section>

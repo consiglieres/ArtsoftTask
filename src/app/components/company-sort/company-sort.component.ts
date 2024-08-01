@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Injectable } from '@angular/core';
+import { SortService } from '../../services/sort.service';
 
 @Component({
   selector: 'app-company-sort',
   templateUrl: './company-sort.component.html',
   styleUrl: './company-sort.component.css'
 })
+
 export class CompanySortComponent {
+  public sortParametrs: string = '';
 
-  // protected sortParametrs: FormControl = new FormControl('')
+  constructor(private sortService: SortService){}
 
-  public onClick(): void{
-    console.log('click')
+  protected onChange(){
+    this.sortService.SortCompany(this.sortParametrs)
   }
 }

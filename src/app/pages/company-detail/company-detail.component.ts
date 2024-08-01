@@ -10,15 +10,14 @@ import { ICompany } from '../../interfaces/company.interface';
 })
 export class CompanyDetailComponent implements OnInit{
   protected object?: ICompany;
+  protected companys: ICompany[] = this.getCompanyService.getCompany()
 
   constructor(private activatedRoute: ActivatedRoute, private getCompanyService: GetCompanyService){}
 
   ngOnInit(): void {
-    this.getCompanyService.getCompany().subscribe(value => {
-      this.activatedRoute.params.subscribe((params: Params) => {
-        this.object = value[params['id'] - 1]
-        console.log(this.object)
-      });
-    })
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.object = this.companys[params['id'] - 1]
+      console.log(this.object)
+    });
   }
 }

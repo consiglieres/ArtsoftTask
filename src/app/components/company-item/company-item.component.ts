@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { GetCompanyService } from '../../services/get-company.service';
+import { Component } from '@angular/core';
 import { ICompany } from '../../interfaces/company.interface';
-import { Observable } from 'rxjs';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-company-item',
   templateUrl: './company-item.component.html',
   styleUrl: './company-item.component.css'
 })
-export class CompanyItemComponent implements OnInit{
+export class CompanyItemComponent{
 
-  public company$?: Observable<ICompany[]>;
+  public companys: ICompany[] = this.filterService.companys
 
-  constructor(private getCompanyService: GetCompanyService){}
 
-  ngOnInit(): void {
-    this.company$ = this.getCompanyService.getCompany()
-  }
+  constructor(public filterService: FilterService){}
+
+
 }

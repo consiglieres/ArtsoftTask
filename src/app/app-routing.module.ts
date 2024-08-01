@@ -10,10 +10,12 @@ const routes: Routes = [
     path: '', redirectTo: 'list', pathMatch: 'full'
   },
   {
-    path: 'list', component: ListComponent,
+    path: 'list', 
+    component: ListComponent,
   },
   {
-    path: 'company/:id', component: CompanyDetailComponent,
+    path: 'company/:id',
+    component: CompanyDetailComponent,
   },
   {
     path: 'map', component: MapComponent,

@@ -1,20 +1,17 @@
-<section class="filters">
-  <input type="text" placeholder="Company name" class="company_name">
+<form class="filters" [formGroup]="inputForms">
+  <input type="text" placeholder="Company name" class="company_name" name="inputCompany" formControlName="inputCompany" (change)="detectCreate()">
   <h1>Company type:</h1>
-  @if(company$ | async; as companys){
-    
-  <select name="" id="type_company">
+  <select name="inputIndustry" id="type_company" formControlName="inputIndustry" (change)="detectCreate()">
     <option value="">Choose type of company</option>
-    @for(company of companys; track company.id){
-        <option value="">{{company.type}}</option>
+    @for(type of inputType; track type){
+      <option value="{{type}}">{{type}}</option>
     }
   </select>
   <h1>Company industry:</h1>
-  <select name="" id="industry_company">
+  <select name="inputType" id="industry_company" formControlName="inputType" (change)="detectCreate()">
     <option value="">Choose industry of company</option>
-    @for(company of companys; track company.id){
-        <option value="">{{company.industry}}</option>
+    @for(industry of inputIndustry; track industry){
+      <option value="{{industry}}">{{industry}}</option>
     }
   </select>
-  }
-</section>
+</form>

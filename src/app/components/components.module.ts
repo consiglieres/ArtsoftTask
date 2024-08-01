@@ -9,19 +9,24 @@ import { CompanyItemComponent } from './company-item/company-item.component';
 import { RouterLink } from '@angular/router';
 import { CompanySortComponent } from './company-sort/company-sort.component';
 import { CompanyFilterComponent } from './company-filter/company-filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SortService } from '../services/sort.service';
+import { FilterService } from '../services/filter.service';
 
 @NgModule({
   declarations: [
     CompanyItemComponent,
     HeaderComponent,
     CompanySortComponent,
-    CompanyFilterComponent,
+    CompanyFilterComponent
   ],
   imports: [ 
     RouterLink,
     CommonModule,
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     CompanyItemComponent,
@@ -30,7 +35,9 @@ import { CompanyFilterComponent } from './company-filter/company-filter.componen
     CompanyFilterComponent
   ],
   providers: [
-    GetCompanyService
+    GetCompanyService,
+    SortService,
+    FilterService
   ],
 })
 export class ComponentsModule {}
