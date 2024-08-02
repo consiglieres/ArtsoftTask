@@ -1,13 +1,13 @@
 <section class="block">
-    @for (company of companys; track company.id) {
+    @for (company of companies; track company.id) {
         <a [routerLink]="['/company', company.id]" class="block_information">
           <img src="{{company.logo}}" class="logo">
           <section class="block_text">
             <h2 class="business_name">
             {{company.business_name}}
           </h2>
-          <div class="item">Industry: {{company.industry}}</div>
-          <div class="item">Type: {{company.type}}</div>
+          <div class="item">{{company.industry}}</div>
+          <div class="item">{{company.type}}</div>
         </section>
       </a>
     }

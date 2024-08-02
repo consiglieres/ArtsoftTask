@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
-import { GetCompanyService } from '../services/get-company.service';
+import { CompanyService } from '../services/company.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { CompanyItemComponent } from './company-item/company-item.component';
@@ -10,8 +10,6 @@ import { RouterLink } from '@angular/router';
 import { CompanySortComponent } from './company-sort/company-sort.component';
 import { CompanyFilterComponent } from './company-filter/company-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SortService } from '../services/sort.service';
-import { FilterService } from '../services/filter.service';
 
 @NgModule({
   declarations: [
@@ -35,9 +33,7 @@ import { FilterService } from '../services/filter.service';
     CompanyFilterComponent
   ],
   providers: [
-    GetCompanyService,
-    SortService,
-    FilterService
+    CompanyService,
   ],
 })
 export class ComponentsModule {}

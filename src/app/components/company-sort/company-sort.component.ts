@@ -1,5 +1,5 @@
-import { Component, Injectable } from '@angular/core';
-import { SortService } from '../../services/sort.service';
+import { Component } from '@angular/core';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-company-sort',
@@ -8,11 +8,11 @@ import { SortService } from '../../services/sort.service';
 })
 
 export class CompanySortComponent {
-  public sortParametrs: string = '';
+  public sortParameter: string = '';
 
-  constructor(private sortService: SortService){}
+  constructor(private companyService: CompanyService){}
 
   protected onChange(){
-    this.sortService.SortCompany(this.sortParametrs)
+    this.companyService.SortCompany(this.sortParameter)
   }
 }

@@ -1,5 +1,4 @@
 export interface ICompany{
-  filter(arg0: (property: any) => boolean): ICompany
   id: number
   logo: string
   business_name: string

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ICompany } from '../../interfaces/company.interface';
-import { FilterService } from '../../services/filter.service';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-company-item',
@@ -8,11 +8,7 @@ import { FilterService } from '../../services/filter.service';
   styleUrl: './company-item.component.css'
 })
 export class CompanyItemComponent{
+  public companies: ICompany[] = this.companyService.arrCompanies
 
-  public companys: ICompany[] = this.filterService.companys
-
-
-  constructor(public filterService: FilterService){}
-
-
+  constructor(public companyService: CompanyService){}
 }
