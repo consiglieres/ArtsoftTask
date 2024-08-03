@@ -7,8 +7,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: './company-detail.component.html',
-  styleUrl: './company-detail.component.css'
+  templateUrl: './company-detail.page.html',
+  styleUrl: './company-detail.page.css'
 })
 export class CompanyDetailComponent implements OnInit{
   protected object?: ICompany;

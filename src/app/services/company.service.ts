@@ -7,6 +7,7 @@ import { ICompany } from '../interfaces/company.interface';
 export class CompanyService {
   // Массив компаний
   public arrCompanies: ICompany[] = this.getCompany();
+  public arrCompaniesEdit?: ICompany[]
 
   // Импортирование модуля httpClient для обрщения к серверу
   constructor(private _httpClient: HttpClient){}
@@ -25,8 +26,8 @@ export class CompanyService {
   public filterInputIndustry: string[] = [...new Set(this.arrCompanies.map(e => {return e.industry}))]
   public filterInputType: string[] = [...new Set(this.arrCompanies.map(e => {return e.type}))]
 
-  // Функция для сортировки по параметру(sortParameter)
-  public SortCompany(sortParameter: string): ICompany[]{
+  // Cортировка
+  public SortCompany(sortParameter: string): void{
     if(sortParameter === 'type'){
       this.arrCompanies = this.arrCompanies.sort((a: ICompany, b: ICompany) => a.type > b.type ? 1 : -1 )
     } else if (sortParameter === 'industry'){
@@ -34,20 +35,22 @@ export class CompanyService {
     } else if (sortParameter === 'business_name'){
       this.arrCompanies = this.arrCompanies.sort((a: ICompany, b: ICompany) => a.business_name > b.business_name ? 1 : -1 )
     }
-    return this.arrCompanies
   }
 
-  // Фильтрация списка по параметрам
-  public FiltersCompany(searchCompany: string, inputIndustry: string, inputType: string): ICompany[]{
-    if(searchCompany != ''){
+  // Фильтрация
+  public FiltersCompany(searchCompany: string, inputIndustry: string, inputType: string): void{
+    console.log(this.arrCompanies, searchCompany, inputIndustry, inputType)
+    if(searchCompany !== ''){
       this.arrCompanies = this.arrCompanies.filter(arr => arr.business_name.includes(searchCompany))
-    } else if(inputIndustry != ''){
-      this.arrCompanies = this.arrCompanies.filter(arr => arr.industry.includes(inputIndustry))
-    } else if(inputType != ''){
-      this.arrCompanies = this.arrCompanies.filter(arr => arr.type.includes(inputType))
-    } else {
-      this.arrCompanies
     }
-    return this.arrCompanies
+    if(inputType !== ''){
+      this.arrCompanies = this.arrCompanies.filter(arr => arr.type === inputType )
+    }
+    if(inputIndustry !== ''){
+      this.arrCompanies = this.arrCompanies.filter(arr => arr.industry === inputIndustry)
+    }
+    else this.arrCompanies = this.getCompany()
   }
 }
+// деструктуризация для filter
+// track index 

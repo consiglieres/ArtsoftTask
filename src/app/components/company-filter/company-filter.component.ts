@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IParameters } from '../../interfaces/parameters.interface';
 import { IParameterControls } from '../../interfaces/parameter-controls.interface';
@@ -11,8 +11,8 @@ import { CompanyService } from '../../services/company.service';
 })
 export class CompanyFilterComponent{
   // Фильтры
-  protected inputIndustry: string[] = this.companyService.filterInputIndustry;
-  protected inputType: string[] = this.companyService.filterInputType;
+  protected inputIndustryFilter: string[] = this.companyService.filterInputIndustry;
+  protected inputTypeFilter: string[] = this.companyService.filterInputType;
 
   // Получение данных с фильтра
   public inputForms: FormGroup = new FormGroup<IParameterControls>({
@@ -21,7 +21,8 @@ export class CompanyFilterComponent{
     inputType: new FormControl<string>('')
   });
 
-  constructor( private companyService: CompanyService ){}
+  constructor( private companyService: CompanyService, private cd: ChangeDetectorRef){}
+  
 
   public detectCreate(): void{
     const inputFormsSend: IParameters = {

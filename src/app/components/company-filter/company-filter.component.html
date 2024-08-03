@@ -1,16 +1,16 @@
-<form class="filters" [formGroup]="inputForms">
+<form class="filters" [formGroup]="inputForms" >
   <input type="text" placeholder="Company name" class="company_name" name="inputCompany" formControlName="inputCompany" (change)="detectCreate()">
   <h1>Company type:</h1>
   <select name="inputIndustry" id="type_company" formControlName="inputIndustry" (change)="detectCreate()">
     <option value="">Choose type of company</option>
-    @for(type of inputType; track type){
+    @for(type of inputIndustryFilter; track type){
       <option type="text" value="{{type}}">{{type}}</option>
     }
   </select>
   <h1>Company industry:</h1>
   <select name="inputType" id="industry_company" formControlName="inputType" (change)="detectCreate()">
     <option value="">Choose industry of company</option>
-    @for(industry of inputIndustry; track industry){
+    @for(industry of inputIndustryFilter; track industry){
       <option type="text" value="{{industry}}">{{industry}}</option>
     }
   </select>

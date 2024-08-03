@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  templateUrl: './list.page.html',
+  styleUrl: './list.page.css'
 })
 export class ListComponent {
 
